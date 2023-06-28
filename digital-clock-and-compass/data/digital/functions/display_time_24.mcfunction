@@ -1,0 +1,12 @@
+# minutes < 10, hours < 10, days start at midnight
+execute if score TimeOfDay minute matches ..9 if score TimeOfDay hour24 matches ..9 run title @s[scores={dayFormat=0}] actionbar [{"text":"0","color":"gold"},{"score":{"name":"TimeOfDay","objective":"hour24"}},{"text":":0"},{"score":{"name":"TimeOfDay","objective":"minute"}},{"text":", Day "},{"score":{"name":"TimeOfDay","objective":"dayMidnight"}}]
+# minutes < 10, hours < 10, days start at 6 am
+execute if score TimeOfDay minute matches ..9 if score TimeOfDay hour24 matches ..9 run title @s[scores={dayFormat=1..}] actionbar [{"text":"0","color":"gold"},{"score":{"name":"TimeOfDay","objective":"hour24"}},{"text":":0"},{"score":{"name":"TimeOfDay","objective":"minute"}},{"text":", Day "},{"score":{"name":"TimeOfDay","objective":"day"}}]
+# minutes < 10, hours >= 10 (after 06:00 day and dayMidnight are always the same)
+execute if score TimeOfDay minute matches ..9 if score TimeOfDay hour24 matches 10.. run title @s actionbar [{"score":{"name":"TimeOfDay","objective":"hour24"},"color":"gold"},{"text":":0"},{"score":{"name":"TimeOfDay","objective":"minute"}},{"text":", Day "},{"score":{"name":"TimeOfDay","objective":"dayMidnight"}}]
+# minutes >= 10, hours < 10, days start at midnight
+execute if score TimeOfDay minute matches 10.. if score TimeOfDay hour24 matches ..9 run title @s[scores={dayFormat=0}] actionbar [{"text":"0","color":"gold"},{"score":{"name":"TimeOfDay","objective":"hour24"}},{"text":":"},{"score":{"name":"TimeOfDay","objective":"minute"}},{"text":", Day "},{"score":{"name":"TimeOfDay","objective":"dayMidnight"}}]
+# minutes >= 10, hours < 10, days start at 6 am
+execute if score TimeOfDay minute matches 10.. if score TimeOfDay hour24 matches ..9 run title @s[scores={dayFormat=1..}] actionbar [{"text":"0","color":"gold"},{"score":{"name":"TimeOfDay","objective":"hour24"}},{"text":":"},{"score":{"name":"TimeOfDay","objective":"minute"}},{"text":", Day "},{"score":{"name":"TimeOfDay","objective":"day"}}]
+# minutes >= 10, hours >= 10 (after 06:00 day and dayMidnight are always the same)
+execute if score TimeOfDay minute matches 10.. if score TimeOfDay hour24 matches 10.. run title @s actionbar [{"score":{"name":"TimeOfDay","objective":"hour24"},"color":"gold"},{"text":":"},{"score":{"name":"TimeOfDay","objective":"minute"}},{"text":", Day "},{"score":{"name":"TimeOfDay","objective":"dayMidnight"}}]
