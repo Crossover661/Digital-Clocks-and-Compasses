@@ -12,4 +12,3 @@ scoreboard players set @a[nbt=!{SelectedItem:{id:"minecraft:compass"}},nbt=!{Inv
 execute as @a[scores={clockFormat=1..}] if score @s holdingClock > @s holdingCompass run function digital:display_time_12
 execute as @a[scores={clockFormat=0}] if score @s holdingClock > @s holdingCompass run function digital:display_time_24
 execute as @a if score @s holdingClock < @s holdingCompass run function digital:display_pos
-title @a[scores={holdingClock=0,holdingCompass=0}] clear
