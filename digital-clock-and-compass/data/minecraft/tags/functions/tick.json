@@ -1,9 +1,0 @@
-{
-    "replace": false,
-    "values": [
-        "digital:set_time",
-        "digital:set_pos",
-        "digital:display",
-        "digital:enable_trigger"
-    ]
-}
